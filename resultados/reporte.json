@@ -1,0 +1,160 @@
+{
+  "europeo": {
+    "pruebas_estadisticas": {
+      "tasa_fraude": 0.001667101358352777,
+      "mann_whitney_monto": {
+        "U": 59517129.5,
+        "p_valor": 2.68609023836721e-05,
+        "r_biserial": -0.11154320394091988
+      },
+      "chi2_hora": {
+        "chi2": 548.2449998816278,
+        "gl": 23,
+        "p_valor": 3.0895931570768874e-101,
+        "v_cramer": 0.04395798455282817
+      }
+    },
+    "mejor_modelo": "LightGBM",
+    "criterio_mejor_modelo": "PR-AUC",
+    "mejor_modelo_f1": "LightGBM",
+    "metricas_test": {
+      "ROC-AUC": 0.9689,
+      "PR-AUC": 0.8333,
+      "Lift PR-AUC": 497.7459,
+      "Precisión": 0.9268,
+      "Recall": 0.8,
+      "F1": 0.8588,
+      "F2": 0.8225,
+      "MCC": 0.8609,
+      "Exactitud balanceada": 0.8999,
+      "Especificidad": 0.9999,
+      "VPN": 0.9997,
+      "FPR por 1000": 0.1059,
+      "Alertas por 1000": 1.445,
+      "Umbral": 0.3001,
+      "TP": 76.0,
+      "FP": 6.0,
+      "FN": 19.0,
+      "TN": 56645.0
+    },
+    "ic95_bootstrap": {
+      "PR-AUC": [
+        0.759354505849435,
+        0.8993297443708062
+      ],
+      "ROC-AUC": [
+        0.9426806420474763,
+        0.9892264037704541
+      ],
+      "F1": [
+        0.7976133905457641,
+        0.9100904331270823
+      ],
+      "Precisión": [
+        0.8689510985116938,
+        0.975162037037037
+      ],
+      "Recall": [
+        0.7157894736842105,
+        0.8736842105263158
+      ],
+      "MCC": [
+        0.801929483911273,
+        0.9100027434542359
+      ]
+    },
+    "mcnemar": {
+      "modelos": [
+        "LightGBM",
+        "XGBoost"
+      ],
+      "metodo": "exacto_binomial",
+      "solo_a_correcto": 4,
+      "solo_b_correcto": 4,
+      "discordantes": 8,
+      "p_valor": 1.0
+    }
+  },
+  "sparkov": {
+    "pruebas_estadisticas": {
+      "tasa_fraude": 0.005210014716091717,
+      "mann_whitney_monto": {
+        "U": 14837147795.0,
+        "p_valor": 0.0,
+        "r_biserial": 0.6685657805420819
+      },
+      "chi2_hora": {
+        "chi2": 23393.390961992154,
+        "gl": 23,
+        "p_valor": 0.0,
+        "v_cramer": 0.11237763981918301
+      },
+      "chi2_categoria": {
+        "chi2": 8329.139945520074,
+        "gl": 13,
+        "p_valor": 0.0,
+        "v_cramer": 0.06705534429779755
+      }
+    },
+    "mejor_modelo": "XGBoost",
+    "criterio_mejor_modelo": "PR-AUC",
+    "mejor_modelo_f1": "Ensamble (promedio)",
+    "metricas_test": {
+      "ROC-AUC": 0.9994,
+      "PR-AUC": 0.9733,
+      "Lift PR-AUC": 252.1575,
+      "Precisión": 0.9376,
+      "Recall": 0.9254,
+      "F1": 0.9315,
+      "F2": 0.9278,
+      "MCC": 0.9312,
+      "Exactitud balanceada": 0.9626,
+      "Especificidad": 0.9998,
+      "VPN": 0.9997,
+      "FPR por 1000": 0.2385,
+      "Alertas por 1000": 3.8095,
+      "Umbral": 0.4336,
+      "TP": 1985.0,
+      "FP": 132.0,
+      "FN": 160.0,
+      "TN": 553442.0
+    },
+    "ic95_bootstrap": {
+      "PR-AUC": [
+        0.9678944818566557,
+        0.9783737785553812
+      ],
+      "ROC-AUC": [
+        0.9990518810745916,
+        0.9996432001670552
+      ],
+      "F1": [
+        0.9238817142451041,
+        0.9397001727258909
+      ],
+      "Precisión": [
+        0.9279860609090126,
+        0.9466985694380895
+      ],
+      "Recall": [
+        0.913041958041958,
+        0.9356643356643357
+      ],
+      "MCC": [
+        0.9236631700002802,
+        0.9395040711257261
+      ]
+    },
+    "mcnemar": {
+      "modelos": [
+        "XGBoost",
+        "LightGBM"
+      ],
+      "metodo": "exacto_binomial",
+      "solo_a_correcto": 64,
+      "solo_b_correcto": 66,
+      "discordantes": 130,
+      "p_valor": 0.9301553393082155
+    }
+  }
+}

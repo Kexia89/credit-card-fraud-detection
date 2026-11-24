@@ -1,0 +1,66 @@
+﻿Leído creditcard.csv: 284,807 filas x 31 columnas
+Duplicados eliminados: 1,081
+
+================================================================================
+  [europeo] Exploración y pruebas de hipótesis
+================================================================================
+Legítimas: 283,253 | Fraudes: 473 | Tasa de fraude: 0.1667%
+Mann-Whitney U (monto fraude vs legítima): U=59,517,130, p=2.69e-05, r_rb=-0.112
+   Mediana fraude = 9.82 | Mediana legítima = 22.00
+Chi-cuadrada (hora vs fraude): chi2=548.2, gl=23, p=3.09e-101, V de Cramér=0.044
+
+================================================================================
+  [europeo] Entrenamiento de modelos
+================================================================================
+Train: 170,235 (284 fraudes) | Val: 56,745 | Test: 56,746 (95 fraudes)
+  Regresión logística  PR-AUC=0.6763  ROC-AUC=0.9625  F1=0.7956  Prec=0.8372  Rec=0.7579  (0s)
+  Random Forest        PR-AUC=0.8142  ROC-AUC=0.9581  F1=0.8353  Prec=0.9467  Rec=0.7474  (91s)
+  XGBoost              PR-AUC=0.8282  ROC-AUC=0.9733  F1=0.8521  Prec=0.9730  Rec=0.7579  (16s)
+  LightGBM             PR-AUC=0.8333  ROC-AUC=0.9689  F1=0.8588  Prec=0.9268  Rec=0.8000  (29s)
+  Ensamble (promedio)  PR-AUC=0.8258  ROC-AUC=0.9732  F1=0.8452
+
+Mejor modelo por PR-AUC: LightGBM
+IC 95 % bootstrap estratificado (LightGBM): PR-AUC [0.7594, 0.8993] | ROC-AUC [0.9427, 0.9892] | F1 [0.7976, 0.9101]
+McNemar exacto LightGBM vs XGBoost: solo primero=4, solo segundo=4, p=1.0000
+Leídos fraudTrain (1,296,675) y fraudTest (555,719)
+
+================================================================================
+  [sparkov] Exploración y pruebas de hipótesis
+================================================================================
+Legítimas: 1,842,743 | Fraudes: 9,651 | Tasa de fraude: 0.5210%
+Mann-Whitney U (monto fraude vs legítima): U=14,837,147,795, p=0.00e+00, r_rb=0.669
+   Mediana fraude = 390.00 | Mediana legítima = 47.24
+Chi-cuadrada (hora vs fraude): chi2=23,393.4, gl=23, p=0.00e+00, V de Cramér=0.112
+Chi-cuadrada (categoría vs fraude): chi2=8,329.1, gl=13, p=0.00e+00, V de Cramér=0.067
+
+================================================================================
+  [sparkov] Entrenamiento de modelos
+================================================================================
+Train: 1,037,340 (5,968 fraudes) | Val: 259,335 | Test: 555,719 (2,145 fraudes)
+  Regresión logística  PR-AUC=0.3351  ROC-AUC=0.9829  F1=0.4950  Prec=0.3976  Rec=0.6555  (3s)
+  Random Forest        PR-AUC=0.9432  ROC-AUC=0.9973  F1=0.8952  Prec=0.9148  Rec=0.8765  (74s)
+  XGBoost              PR-AUC=0.9733  ROC-AUC=0.9994  F1=0.9315  Prec=0.9376  Rec=0.9254  (256s)
+  LightGBM             PR-AUC=0.9720  ROC-AUC=0.9993  F1=0.9314  Prec=0.9448  Rec=0.9184  (214s)
+  Ensamble (promedio)  PR-AUC=0.9682  ROC-AUC=0.9983  F1=0.9333
+
+Mejor modelo por PR-AUC: XGBoost
+Mejor modelo por F1 al umbral elegido: Ensamble (promedio) (objetivo distinto)
+IC 95 % bootstrap estratificado (XGBoost): PR-AUC [0.9679, 0.9784] | ROC-AUC [0.9991, 0.9996] | F1 [0.9239, 0.9397]
+McNemar exacto XGBoost vs LightGBM: solo primero=64, solo segundo=66, p=0.9302
+
+================================================================================
+  Comparación entre bases
+================================================================================
+   Base              Modelo  PR-AUC  ROC-AUC     F1  Precisión  Recall    MCC
+europeo            LightGBM  0.8333   0.9689 0.8588     0.9268  0.8000 0.8609
+europeo             XGBoost  0.8282   0.9733 0.8521     0.9730  0.7579 0.8585
+europeo Ensamble (promedio)  0.8258   0.9732 0.8452     0.9726  0.7474 0.8524
+europeo       Random Forest  0.8142   0.9581 0.8353     0.9467  0.7474 0.8409
+europeo Regresión logística  0.6763   0.9625 0.7956     0.8372  0.7579 0.7962
+sparkov             XGBoost  0.9733   0.9994 0.9315     0.9376  0.9254 0.9312
+sparkov            LightGBM  0.9720   0.9993 0.9314     0.9448  0.9184 0.9313
+sparkov Ensamble (promedio)  0.9682   0.9983 0.9333     0.9408  0.9259 0.9330
+sparkov       Random Forest  0.9432   0.9973 0.8952     0.9148  0.8765 0.8950
+sparkov Regresión logística  0.3351   0.9829 0.4950     0.3976  0.6555 0.5082
+
+Listo. Gráficas y métricas en: C:\Users\uriel\OneDrive\Documentos\03 Seguridad, Defensa y Monitoreo\Detección de fraude en tarjetas de credito\credit-card-fraud-detection\resultados

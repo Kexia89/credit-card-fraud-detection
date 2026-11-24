@@ -1,0 +1,18 @@
+# Las bases pesan >100 MB, GitHub no las acepta. Ver data/README.md
+data/**/*.csv
+*.csv
+!resultados/**/*.csv
+
+# Modelos entrenados: se regeneran localmente y pueden ser grandes/version-dependientes
+modelos/*.joblib
+modelos/*.json
+modelos/*.txt
+resultados_validacion_rapida/
+
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
